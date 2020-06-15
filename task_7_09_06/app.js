@@ -113,18 +113,39 @@ document.getElementById("mouseHover").onmouseup = notOnMe;
 Реалізуйте програму, яка відслідковуватиме зміну розміру (ширини і висоти) вікна браузера і виводитиме на поточну сторінку при її розтязі/стисканні відповідні значення.
 ==================================================*/
 let Obj = window.open("about:blank", "whiteWindow", "left=400,top=100");
-let b = Obj.innerHeight;
-let a = Obj.innerWidth;
+// let h = Obj.innerHeight;
+// let w = Obj.innerWidth;
+// // let mydiv = Obj.document.body.createElement('div')
+// p1 = Obj.document.createElement('p');
+// p2 = Obj.document.createElement('p');
+// p1.innerHTML = h
+// p2.innerHTML = w
 
-Obj.document.write("Width: " + a + ", Height: " + b);
-// window.location.reload()
+// g1 = Obj.createElement('p')
+// console.log(g1)
+    let h = Obj.innerHeight;
+    let w = Obj.innerWidth;
+    
+    p1 = Obj.document.createElement('p');
+    p2 = Obj.document.createElement('p');
+    p1.innerHTML = h
+    p2.innerHTML = w
 
-// Доопрацювати !!!!!!!!!!!
+    p1.prepend("Height: ")
+    p2.prepend(", Width: ")
+
+    Obj.document.write(p1.innerHTML + " " + p2.innerHTML)
+    console.log(p1.innerHTML + " " + p2.innerHTML)
+
+function f() {
+    h = Obj.innerHeight;
+    w = Obj.innerWidth;
+
+}
+window.onresize = f
 
 /*7. 
 На сторінці потрібно реалізувати 2 випадаючих списки. У першому містяться назви країн, у другому – назви міст. Реалізувати роботу таким чином, щоб коли вибирається з лівого випадаючого списку певна країна - в правому випадаючому  списку з'являлися міста цієї країни. Список міст формується динамічно, через JavaScript. Також потрібно нижче вивести назву обраної країни і місто.
-
-   
 
 Код HTML-сторінки:
 <select name="country" id="country">
@@ -136,3 +157,49 @@ Obj.document.write("Width: " + a + ", Height: " + b);
 <select name="cities" id="cities"></select>
 <p></p>
 ==================================================*/
+let countryObj = document.getElementById("country");
+let citiesObj = document.getElementById("cities");
+let usa = ["New-York", "Washington", "Aurora", "Alexandria", "Albuquerque", "Anchorage", "Annapolis", "Arvada", "Atlanta", "Atlantic City"];
+let ger = ["Hamburg", "Berlin", "Bremen", "Nurnberg", "Wurzburg", "Hanover", "Munchen", "Potsdam", "Bamberg", "Dresden"];
+let ukr = ["Kyiv", "Lviv", "Odessa", "Mucachevo", "Dnipro", "Kharkiv", "Ternopil", "Rivne", "Poltava", "Chernivci"]
+
+function addOption(arr){
+    for (i=0; i<arr.length; i++) {
+        let newOption = new Option(arr[i]);
+        citiesObj.options[citiesObj.options.length]=newOption;
+        
+    }
+}
+function replaceOption(arr) {
+    for ( ik=0; ik < citiesObj.options.length; ik++ ) {
+        let newOption = new Option(arr[ik]);
+        citiesObj.options[citiesObj.options.length]=newOption;
+        citiesObj.options[ik].replaceWith(newOption);
+    }
+}
+  
+function writeCountryCities(){
+    let countryCities = countryObj.options[countryObj.options.selectedIndex].innerHTML + ", " + citiesObj.options[citiesObj.options.selectedIndex].innerHTML;
+    document.getElementsByTagName("p")[1].innerHTML = countryCities;
+}
+function fff(){
+selectedIndex = countryObj.options.selectedIndex
+if (countryObj.options[countryObj.selectedIndex].value == "usa") {
+    replaceOption(usa);
+    addOption(usa);
+    citiesObj.options.length = usa.length;
+
+} else if (countryObj.options[countryObj.selectedIndex].value == "ger") {
+    replaceOption(ger);
+    addOption(ger);
+    citiesObj.options.length = ger.length;
+
+} else if (countryObj.options[countryObj.selectedIndex].value == "ukr") {
+    addOption(ukr);
+    replaceOption(ukr);
+    citiesObj.options.length = ukr.length;
+
+}
+}
+countryObj.onclick = fff;
+citiesObj.onclick = writeCountryCities;
