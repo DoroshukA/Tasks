@@ -107,7 +107,7 @@ function press() {
 }
 document.getElementById("mouseHover").onclick = press;
 document.getElementById("mouseHover").onmouseover = onMe;
-document.getElementById("mouseHover").onmouseup = notOnMe;
+document.getElementById("mouseHover").onmouseout = notOnMe;
 
 /*6.
 Реалізуйте програму, яка відслідковуватиме зміну розміру (ширини і висоти) вікна браузера і виводитиме на поточну сторінку при її розтязі/стисканні відповідні значення.
