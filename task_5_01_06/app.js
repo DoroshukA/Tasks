@@ -192,9 +192,10 @@ worker3.setExp = 1.5;
 console.log("New experience: " + worker3.showExp);
 worker3.showSalaryWithExperience();
 
-// console.log(worker3.showNameSalary());
-// console.log(worker2.showNameSalary());
-// console.log(worker1.showNameSalary());
+console.log(worker3.showNameSalary());
+console.log(worker2.showNameSalary());
+console.log(worker1.showNameSalary());
+
 
 function filterSalary(arr) {
     function sortBySalary(array) {
@@ -203,18 +204,19 @@ function filterSalary(arr) {
 
     arr[0] = {fullname: worker1.fullName, showSalaryWithExperience: worker1.showSalaryWithExperience()};
     arr[1] = {fullname: worker2.fullName, showSalaryWithExperience: worker2.showSalaryWithExperience()};
-    arr[2] = {fullname: worker3.fullName, showSalaryWithExperience: worker3.showSalaryWithExperience()}
+    arr[2] = {fullname: worker3.fullName, showSalaryWithExperience: worker3.showSalaryWithExperience()};
 
     let arr2 = [arr[0], arr[1], arr[2]];
 
     sortBySalary(arr2);
 
-    i = 0;
-    while (i < arr2.length) {
-        console.log(arr2[i].fullname + ": " + arr2[i].showSalaryWithExperience);
-        i++;
+    k = 0;
+    while (k < arr2.length) {
+        console.log(arr2[k].fullname + ": " + arr2[k].showSalaryWithExperience);
+        k++;
     }
-filterSalary([worker1, worker2, worker3])
+}
+filterSalary([worker1, worker2, worker3]);
 
 /*5. 
 Створіть батьківський клас GeometricFigure, який має порожній метод для визначення площі getArea() та метод toString() для виведення назви класу.
@@ -297,4 +299,4 @@ function handleFigures(figures) {
     return total;
 }
 const figures = [new Triangle(4, 5), new Square(7), new Circle(5)];
-console.log(handleFigures(figures));
+console.log(handleFigures(figures))
