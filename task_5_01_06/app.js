@@ -138,12 +138,12 @@ Andy Ander: 1000.5
 Tom Tomson: 1584
 =================================================*/
 class Worker {
-    _showExp = 1.2;
+    #experience = 1.2;
   set setExp(value) {
-    this._showExp = value;
+    this.#experience = value;
   }
   get showExp() {
-    return this._showExp;
+    return this.#experience;
   }
     constructor(fullName, dayRate, workingDays) {
         this.fullName = fullName;
@@ -156,11 +156,11 @@ class Worker {
         return salary;
     }
     showSalaryWithExperience() {
-        let salaryExp = this.dayRate * this.workingDays * this._showExp;
+        let salaryExp = this.dayRate * this.workingDays * this.#experience;
         return salaryExp;
     }
     showNameSalary() {
-        let nameSalaryValue = this.dayRate * this.workingDays * this._showExp;
+        let nameSalaryValue = this.dayRate * this.workingDays * this.#experience;
         let nameSalary = this.fullName + ": " + nameSalaryValue;
         return nameSalary;
     }
