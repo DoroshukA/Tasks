@@ -143,6 +143,27 @@ function f() {
 
 }
 window.onresize = f
+/*Second option*/
+// let Obj = window.open("about:blank", "whiteWindow", "left=400,top=100");
+// p1 = Obj.document.createElement('p');
+// p2 = Obj.document.createElement('p');
+
+// function f() {
+// p1.innerHTML = Obj.innerHeight;
+// p2.innerHTML = Obj.innerWidth;
+// p1.prepend("Height: ")
+// p2.prepend(", Width: ")
+//     Obj.document.write(p1.innerHTML + " " + p2.innerHTML)
+// }
+// Obj.addEventListener("resize", f);
+/*Third option*/
+// let Obj = window.open("about:blank", "whiteWindow", "left=400,top=100");
+// function f() {
+// h = Obj.innerHeight;
+// w = Obj.innerWidth;
+// Obj.document.write("Height: " + h + ", Width: " + w);
+// }
+// Obj.addEventListener("resize", f);
 
 /*7. 
 На сторінці потрібно реалізувати 2 випадаючих списки. У першому містяться назви країн, у другому – назви міст. Реалізувати роботу таким чином, щоб коли вибирається з лівого випадаючого списку певна країна - в правому випадаючому  списку з'являлися міста цієї країни. Список міст формується динамічно, через JavaScript. Також потрібно нижче вивести назву обраної країни і місто.
