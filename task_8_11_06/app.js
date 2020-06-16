@@ -23,13 +23,12 @@ upperCase('RegExp');
 checkEmail("Qmail2@gmail.com");
 true
 ======================================================*/
-function checkEmail(email) {
-	regExp = /^(\w)+\@(\w)+\.(\w{2,4})$/;
-	
-	d = regExp.test(email)
+function checkEmail1(em) {
+	regExpM = /^(\w)+\@(\w)+\.(\w)+$/;
+	d = regExpM.test(em)
     console.log(d)
 }
-checkEmail("Qmail2@gmail.com");
+checkEmail1("Qmail2@gmail.com");
 
 /*3. 
 Напишіть регулярний вираз, який знаходитиме в тексті одну літеру d, за якою йде одна чи більше b, за якими одна d. Запам’ятати знайдені b і наступну за ними d.  Враховувати верхній і нижній регістр.
@@ -37,15 +36,9 @@ checkEmail("Qmail2@gmail.com");
 Для стрінги "cdbBdbsbz" результат ["dbBd", "bB", "d"]
 ======================================================*/
 let str = "cdbBdbsbz";
-let regExp = /d|b{1,}|(dbb,)/gi;
-let result = regExp.exec(str);
-console.log(result);
-console.log(str.match(regExp))
-
-
-
-
-
+arr = str.match(/b{2,}|d/gi);
+arr[0] = str.match(/d{1}b+d{1}/gi).join();
+console.log(arr);
 
 /*4. 
 Напишіть регулярний вираз, який в рядковому тексті 2 підстрічки буде міняти місцями.
@@ -54,8 +47,6 @@ console.log(str.match(regExp))
 Вихід    “Script, Java”
 ======================================================*/
 let strEx = "Java Script"
-
-// console.log(strEx.split(" ").reverse().join(", "));
 console.log(strEx.match(/\w+|\w+/g).reverse().join(", "))
 
 /*5. 
@@ -69,7 +60,6 @@ if (/^\d{4}-\d{4}-\d{4}-\d{4}$/.test(num)) {
 }
 }
 validateCard("9999-9999-9999-9999");
-
 
 /*6. 
 Напишіть функцію, яка приймає рядкові дані і виконує перевірку на їх відповідність емейлу.
@@ -112,5 +102,4 @@ function checkLogin(login) {
 
 checkLogin('eeee1.uret3')
 checkLogin('ee1*1ret3')
-
 
