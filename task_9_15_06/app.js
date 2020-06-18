@@ -35,9 +35,24 @@ $("h3").next("div")[0].remove();
 /*4. 
 На HTML-сторінці є 6 чекбоксів. Напишіть скріпт, який після того, як користувач позначив будь-які 3 чекбокси, всі чекбокси робить неактивними.
 =======================================*/
-var vse = document.getElementsByName('anycheck');
+let checkbox = document.querySelectorAll("input");
+let arr = [];
 
-function cb() {
-  if (Array.prototype.every.call(vse, function(e) {return e.checked == true;})) {
+for (k=0; k<=5; k++) {
+  checkbox[k].onclick = f
+}
+
+function f() {
+    if (checkbox.checked = true) {
+      arr.push(1);
+      if (arr.length == 3) {
+        desabledCheckbox()
+      }
+    }
+}
+
+function desabledCheckbox() {
+  for (let i=0; i<=5; i++) {
+      checkbox[i].disabled = true
   }
 }
