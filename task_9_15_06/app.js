@@ -46,13 +46,29 @@ function f() {
     if (checkbox.checked = true) {
       arr.push(1);
       if (arr.length == 3) {
-        desabledCheckbox()
+        disabledCheckbox()
       }
     }
 }
 
-function desabledCheckbox() {
+function disabledCheckbox() {
   for (let i=0; i<=5; i++) {
       checkbox[i].disabled = true
   }
 }
+
+/*Second option*/
+// let arr = [];
+
+// for ( k=0; k<=5; k++ ) {
+//   $("input")[k].onclick = function() {
+//     if ( $("input").checked = true ) {
+//       arr.push(1);
+//       if ( arr.length == 3 ) {
+//         for ( let i=0; i<=5; i++ ) {
+//             $("input")[i].disabled = true
+//         }
+//       }
+//     }
+//   }
+// }
