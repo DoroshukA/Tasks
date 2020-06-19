@@ -24,9 +24,7 @@ checkEmail("Qmail2@gmail.com");
 true
 ======================================================*/
 function checkEmail1(em) {
-	regExpM = /^(\w)+\@(\w)+\.(\w)+$/;
-	d = regExpM.test(em)
-    console.log(d)
+    console.log(/^\S+@\S+\.\S+$/.test(em))
 }
 checkEmail1("Qmail2@gmail.com");
 
@@ -36,9 +34,12 @@ checkEmail1("Qmail2@gmail.com");
 Для стрінги "cdbBdbsbz" результат ["dbBd", "bB", "d"]
 ======================================================*/
 let str = "cdbBdbsbz";
-arr = str.match(/b{2,}|d/gi);
-arr[0] = str.match(/d{1}b+d{1}/gi).join();
-console.log(arr);
+console.log(/d(b+)(d)/gi.exec(str));
+
+/*Second option*/
+// arr = str.match(/b{2,}|d/gi);
+// arr[0] = str.match(/d{1}b+d{1}/gi).join();
+// console.log(arr);
 
 /*4. 
 Напишіть регулярний вираз, який в рядковому тексті 2 підстрічки буде міняти місцями.
@@ -75,13 +76,13 @@ checkEmail('#my_mail@gmail.com');
 Email is not correct!
 ======================================================*/
 function checkEmail(email) {
-	if (/^[^-,_,#](\w)+(-{1})?(\w)+\@(\w)+(-{1})?(\w)+\.(\w)+$/.test(email)) {
+	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w+)+$/.test(email)) {
 		console.log("Email is correct!");
 	} else {
 		console.log("Email is not correct!")
 	}
 }
-checkEmail('My_mail@gmail.com');
+checkEmail('my_mail@gmail.com');
 checkEmail('#my_mail@gmail.com');
 
 /*7. Напишіть функцію, яка перевіряє правильність логіна. Правильний логін - рядок від 2 до 10 символів, що містить лише букви та цифри, номер не може бути першим. Функція має приймати рядок і знаходити усі числа в цьому рядку, включаючи числа з плаваючою комою (наприклад, 3.4).
@@ -95,11 +96,11 @@ false
 1, 1, 3
 ======================================================*/
 function checkLogin(login) {
-	console.log(/^([^\d,_,*]\w)\w[^_,*]/.test(login));
-	// console.log(/(\d\.?\d)|\d/g.test(login));
-	console.log(login.match(/(\d\.?\d)|\d/g));
+	console.log(/^[a-zA-Z]{1}[a-zA-Z0-9\.]{1,9}$/.test(login));
+	console.log(login.match(/[0-9\.]+/g));
 }
 
-checkLogin('eeee1.uret3')
+checkLogin('ee1.1ret3')
 checkLogin('ee1*1ret3')
+
 
