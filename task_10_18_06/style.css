@@ -1,0 +1,11 @@
+body {
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #312323;
+
+    background-color: #f8f5f5;
+}
+.title {
+     opacity: 0.1;
+     font-size: 45px;
+}
